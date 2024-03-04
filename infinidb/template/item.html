@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{template "inc-head.html"}}
+  </head>
+  <body>
+    {{template "inc-nav.html"}}
+    <div class="container p-2">
+      <form method="get">
+        <label class="form-label">Item</label>
+        <input id="item" class="" type="search" name="query" />
+        <input class="" type="submit" value="Go" />
+      </form>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2">Item</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{range .Items}}
+          <tr>
+            <td>{{.}}</td>
+            <td>
+              <a href="/recipe/list/{{.}}"><button class="btn btn-light" title="Recipe list"><i class="bi bi-list-task"></i></button></a>
+              <a href="/recipe/tree/{{.}}"><button class="btn btn-light" title="Recipe tree"><i class="bi bi-plus-square"></i></button></a>
+            </td>
+          </tr>
+          {{end}}
+        </tbody>
+      </table>
+    </div>
+    <script>
+      (() => {
+        let url = new URL(document.URL);
+        let itemValue = url.searchParams.get('query') || '';
+        document.querySelector('#item').value = itemValue;
+      })();
+    </script>
+  </body>
+</html>

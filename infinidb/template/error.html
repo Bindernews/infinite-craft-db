@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{template "inc-head.html"}}
+  </head>
+  <body>
+    {{template "inc-nav.html"}}
+    <h2>Error {{.Code}}</h2>
+    <ul>
+    {{range .Errors}}
+      <li>{{.}}</li>
+    {{end}}
+    </ul>
+  </body>
+</html>

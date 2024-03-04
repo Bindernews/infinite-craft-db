@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{template "inc-head.html"}}
+  </head>
+  <body>
+    {{template "inc-nav.html"}}
+    <div class="container p-2">
+      <form method="post">
+        <div class="mb-3">
+          <label>
+            Source 1
+            <input class="form-control" type="text" name="src_a" />
+          </label>
+        </div>
+        <div class="mb-3">
+          <label>
+            Source 2
+            <input class="form-control" type="text" name="src_b" />
+          </label>
+        </div>
+        <div class="mb-3">
+          <label for="output" class="form-label">Output: </label>
+          <input class="form-control w-fit" id="output" type="text" name="dst" />
+        </div>
+        <input class="btn btn-primary" type="submit" value="Add" />
+        {{if .Status}}<div class="status">{{.Status}}</div>{{end}}
+      </form>
+    </div>
+  </body>
+</html>
